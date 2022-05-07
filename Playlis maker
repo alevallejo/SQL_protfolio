@@ -67,4 +67,3 @@ SELECT name FROM artists WHERE genre = "Pop";
 /*Add another query that will select the title of all the songs from the 'Pop' artists. It should use IN on a nested subquery that's based on your previous query*/
 
 SELECT title FROM songs WHERE artist IN (SELECT name FROM artists WHERE genre = "Pop")
-
