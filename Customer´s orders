@@ -35,3 +35,4 @@ FROM customers
     ON customers.id = orders.customer_id
     GROUP BY customers.name
     ORDER BY total_orders DESC;
+    
