@@ -33,3 +33,4 @@ SELECT COUNT(*),
     END as "letter_grade"
 FROM student_grades
 GROUP BY letter_grade; 
+
