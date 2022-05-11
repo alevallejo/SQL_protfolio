@@ -1,0 +1,64 @@
+/* Create table about the people and what they do here */
+/*then make more tables about things they do and join those to create nice human readable lists.
+
+For example, here are types of famous people and the questions your data could answer:
+
+Movie stars: What movies are they in? Are they married to each other?*/
+
+CREATE TABLE famous (id INTEGER PRIMARY KEY,
+    first_name TEXT,
+    last_name TEXT,
+    activity TEXT);
+    
+INSERT INTO famous (first_name, last_name, activity)
+    VALUES ("Jennifer", "Anniston", "actress");
+INSERT INTO famous (first_name, last_name, activity)
+    VALUES ("Colin", "Jost", "actor");
+INSERT INTO famous (first_name, last_name, activity)
+    VALUES ("Scarlett", "Johanson", "actress");
+INSERT INTO famous (first_name, last_name, activity)
+    VALUES ("Bradley", "Pitt", "actor");
+INSERT INTO famous (first_name, last_name, activity)
+    VALUES ("Blake", "Lively", "actress");
+INSERT INTO famous (first_name, last_name, activity)
+    VALUES ("Ryan", "Reynolds", "actor");
+    
+CREATE TABLE movies (id INTEGER PRIMARY KEY,
+    name INTEGER,
+    movie TEXT);
+    
+INSERT INTO movies (name, movie)
+    VALUES (1, "Just go with it");
+INSERT INTO movies (name, movie)
+    VALUES (2, "How to be single");
+INSERT INTO movies (name, movie)
+    VALUES (3, "He's not that into you");
+INSERT INTO movies (name, movie)
+    VALUES (4, "Mr. and Mrs. Smith");
+INSERT INTO movies (name, movie)
+    VALUES (5, "Tha age of Adaline");
+INSERT INTO movies (name, movie)
+    VALUES (6, "Dead Pool");
+    
+CREATE TABLE relations (id INTEGER PRIMARY KEY,
+    person1_id INTEGER,
+    person2_id INTEGER);
+    
+INSERT INTO relations (person1_id, person2_id)
+    VALUES (1, 4);
+INSERT INTO relations (person1_id, person2_id)
+    VALUES (2, 3);
+INSERT INTO relations (person1_id, person2_id)
+    VALUES (5, 6);
+    
+SELECT famous.first_name, famous.last_name, movies.movie
+    FROM famous
+    JOIN movies
+    ON famous.id = movies.name;
+
+SELECT a.first_name, b.first_name
+    FROM relations
+    JOIN famous a
+    ON relations.person1_id = a.id
+    JOIN famous b
+    ON relations.person2_id = b.id;
