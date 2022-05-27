@@ -1,0 +1,44 @@
+SELECT end_station_name
+FROM bigquery-public-data.london_bicycles.cycle_hire LIMIT 1000;
+
+/*how many bike trips lasted for 20 minutes or longer?*/
+
+SELECT *
+FROM bigquery-public-data.london_bicycles.cycle_hire
+WHERE duration >= 1200;
+
+/*What are the names of the stations that bike_id 1710 started from?*/
+
+SELECT bike_id, end_station_name
+FROM bigquery-public-data.london_bicycles.cycle_hire
+WHERE bike_id = 1710;
+
+/*How many bike_ids have ended at "Moor Street, Soho"?*/
+
+SELECT bike_id, end_station_name
+FROM bigquery-public-data.london_bicycles.cycle_hire
+WHERE end_station_name = "Moor Street, Soho";
+
+/*What is the station_id for "Canton Street, Poplar"?*/
+
+SELECT end_station_id, end_station_name
+FROM bigquery-public-data.london_bicycles.cycle_hire
+WHERE end_station_name = "Canton Street, Poplar";
+
+/*What is the name of the station whose ID is 111?*/
+
+SELECT end_station_id, end_station_name
+FROM bigquery-public-data.london_bicycles.cycle_hire
+WHERE end_station_id = 111;
+
+/*How many distinct bike_ids had trip durations greater than 2400 seconds (or 40 minutes)?*/
+
+SELECT bike_id, duration
+FROM bigquery-public-data.london_bicycles.cycle_hire
+WHERE duration >= 2400;
+
+/*At what station did the bike trip with rental_id 57635395 end?*/
+
+SELECT rental_id, end_station_id, end_station_name
+FROM bigquery-public-data.london_bicycles.cycle_hire
+WHERE rental_id = 57635395;
